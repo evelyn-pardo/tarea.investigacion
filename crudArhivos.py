@@ -2,27 +2,27 @@ class Archivo:
     def __init__(self,nombreArchivo,separador=';'):
         self.__archivo = nombreArchivo
         self.__separador = separador
-        
+
     def leer(self):
         try:
           with open(self.__archivo, 'r', encoding="UTF-8") as file:
-            lista=[] 
+            lista=[]
             for linea in file:
               line = linea[:-1].split(self.__separador)
               lista.append(line)
         except IOError:
-           lista=[]    
-        return lista       
-    
-    def buscar(self,buscado): 
-        resultado = [] 
-                      
+           lista=[]
+        return lista
+
+    def buscar(self,buscado):
+        resultado = []
+
         with open(self.__archivo, mode='r', encoding='utf-8') as file:
             for linea in file:
                if linea[:-1].split(self.__separador)[0].find(buscado) is not -1 :
                     resultado = linea[:-1].split(self.__separador)
         return resultado
-   
+
     def buscarLista(self,buscado):
         resultado = []
         with open(self.__archivo, mode='r', encoding='utf-8') as file:

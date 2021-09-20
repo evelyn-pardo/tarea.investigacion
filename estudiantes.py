@@ -10,8 +10,8 @@ def carreras():
    borrarPantalla()
    gotoxy(20,2);print("MANTENIMIENTO DE CARRERAS")
    gotoxy(15,4);print("Codigo: ")
-   gotoxy(13,5);print("Carrera: ")
-   gotoxy(33,5)
+   gotoxy(15,5);print("Carrera: ")
+   gotoxy(24,5)
    descarrera = input()
    archiCarrera = Archivo("./datos/carrera.txt",";")
    carreras = archiCarrera.leer()
@@ -26,8 +26,8 @@ def materias():
    borrarPantalla()
    gotoxy(20,2);print("INGRESO DE MATERIAS")
    gotoxy(15,4);print("Codigo: ")
-   gotoxy(12,5);print("Materias: ")
-   gotoxy(33,5)
+   gotoxy(15,5);print("Materias: ")
+   gotoxy(24,5)
    desmateria = input()
    archiMateria = Archivo("./datos/materia.txt",";")
    materias = archiMateria.leer()
@@ -42,8 +42,8 @@ def periodos():
    borrarPantalla()
    gotoxy(20,2);print("INGRESO DE PERIODOS")
    gotoxy(15,4);print("Codigo: ")
-   gotoxy(12,5);print("Periodos: ")
-   gotoxy(33,5)
+   gotoxy(15,5);print("Periodos: ")
+   gotoxy(24,5)
    desperiodo = input()
    archiPeriodo = Archivo("./datos/periodo.txt",";")
    periodos = archiPeriodo.leer()
@@ -63,18 +63,18 @@ def profesores():
    gotoxy(15,6);print("Titulo: ")
    gotoxy(15,7);print("Telefono: ")
    gotoxy(15,8);print("Carrera ID[    ]: ")
-   gotoxy(25,4);nom = input()
-   gotoxy(25,5);ced = input()
-   gotoxy(25,6);tit = input()
-   tel=validar.solo_numeros("Error: Solo numeros",25,7)
+   gotoxy(25,3);nom = input()
+   gotoxy(25,4);ced = input()
+   gotoxy(25,5);tit = input()
+   tel=validar.solo_numeros("Error: Solo numeros",25,6)
    lisCarrera,entCarrera = [],None
    while not lisCarrera:
-      gotoxy(27,8);id = input().upper()
+      gotoxy(27,7);id = input().upper()
       archiCarrera = Archivo("./datos/carrera.txt")
       lisCarrera = archiCarrera.buscar(id)
       if lisCarrera:
           entCarrera = Carrera(lisCarrera[0],lisCarrera[1])
-          gotoxy(33,8);print(entCarrera.descripcion)
+          gotoxy(33,7);print(entCarrera.descripcion)
       else:
          gotoxy(33,8);print("No existe Carrera con ese codigo[{}]:".format(id))
          time.sleep(1);gotoxy(33,8);print(" "*40)
@@ -99,21 +99,21 @@ def estudiantes():
    gotoxy(20,2);print("INGRESO DE ESTUDIANTES ")
    gotoxy(15,4);print("Nombre: ")
    gotoxy(15,5);print("Cedula: ")
-   gotoxy(14,6);print("Direccion: ")
+   gotoxy(15,6);print("Direccion: ")
    gotoxy(15,7);print("Telefono: ")
    gotoxy(15,8);print("Carrera ID[    ]: ")
-   gotoxy(25,4);nom = input()
-   ced=validar.solo_numeros("Error: Solo numeros",25,5)
-   gotoxy(25,6);dire = input()
-   tell=validar.solo_numeros("Error: Solo numeros",25,7)
+   gotoxy(25,3);nom = input()
+   ced=validar.solo_numeros("Error: Solo numeros",25,4)
+   gotoxy(25,5);dire = input()
+   tell=validar.solo_numeros("Error: Solo numeros",25,6)
    lisCarrera,entCarrera = [],None
    while not lisCarrera:
-      gotoxy(27,8);id = input().upper()
+      gotoxy(27,7);id = input().upper()
       archiCarrera = Archivo("./datos/carrera.txt")
       lisCarrera = archiCarrera.buscar(id)
       if lisCarrera:
           entCarrera = Carrera(lisCarrera[0],lisCarrera[1])
-          gotoxy(33,8);print(entCarrera.descripcion)
+          gotoxy(33,7);print(entCarrera.descripcion)
       else:
          gotoxy(33,8);print("No existe Carrera con ese codigo[{}]:".format(id))
          time.sleep(1);gotoxy(33,8);print(" "*40)
@@ -201,45 +201,45 @@ def notas():
     gotoxy(15,10);print("nota2: ")
     lisPeriodo,entPeriodo = [],None
     while not lisPeriodo:
-        gotoxy(28,5);idPer = input().upper()
+        gotoxy(28,2);idPer = input().upper()
         archiPeriodo = Archivo("./datos/periodo.txt")
         lisPeriodo = archiPeriodo.buscar(idPer)
         if lisPeriodo:
             entPeriodo = Periodo(lisPeriodo[0],lisPeriodo[1])
-            gotoxy(34,5);print(entPeriodo.descripcion)
+            gotoxy(34,2);print(entPeriodo.descripcion)
         else:
             gotoxy(34,5);print("No existe Carrera con ese codigo[{}]:".format(idPer))
             time.sleep(1);gotoxy(34,5);print(" "*40)
     lisEstudiante,entEstudiante = [],None
     while not lisEstudiante:
-        gotoxy(31,6);id = input().upper()
+        gotoxy(31,3);id = input().upper()
         archiEstudiante = Archivo("./datos/estudiante.txt")
         lisEstudiante = archiEstudiante.buscar(id)
         if lisEstudiante:
             entEstudiante = Estudiante(lisEstudiante[0],lisEstudiante[1],lisEstudiante[2],lisEstudiante[3],lisEstudiante[4]) 
-            gotoxy(36,6);print(entEstudiante.nombre)
+            gotoxy(36,3);print(entEstudiante.nombre)
         else:
             gotoxy(36,6);print("No existe Carrera con ese codigo[{}]:".format(id))
             time.sleep(1);gotoxy(36,6);print(" "*40)
     lisMateria,entMateria = [],None
     while not lisMateria:
-        gotoxy(29,7);id = input().upper()
+        gotoxy(29,4);id = input().upper()
         archiMateria= Archivo("./datos/materia.txt")
         lisMateria = archiMateria.buscar(id)
         if lisMateria:
             entMateria = Materia(lisMateria[0],lisMateria[1])
-            gotoxy(35,7);print(entMateria.descripcion)
+            gotoxy(35,4);print(entMateria.descripcion)
         else:
             gotoxy(35,7);print("No existe Carrera con ese codigo[{}]:".format(id))
             time.sleep(1);gotoxy(29,7);print(" "*40)
     lisProfesor,entProfesor = [],None
     while not lisProfesor:
-        gotoxy(29,8);id = input().upper()
+        gotoxy(29,5);id = input().upper()
         archiProfesor = Archivo("./datos/profesor.txt")
         lisProfesor = archiProfesor.buscar(id)
         if lisProfesor:
             entProfesor = Profesor(lisProfesor[0],lisProfesor[1],lisProfesor[2],lisProfesor[3],lisProfesor[4],lisProfesor[5]) 
-            gotoxy(32,8);print(entProfesor.nombre)
+            gotoxy(32,5);print(entProfesor.nombre)
         else:
             gotoxy(32,8);print("No existe Carrera con ese codigo[{}]:".format(id))
             time.sleep(1);gotoxy(32,8);print(" "*40)
