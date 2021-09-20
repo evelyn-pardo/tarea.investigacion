@@ -6,7 +6,7 @@ class Menu:
         self.opciones=opciones
         self.col=col
         self.fil=fil
-
+        
     def menu(self):
         gotoxy(self.col,self.fil);print(self.titulo)
         self.col-=5
@@ -15,12 +15,12 @@ class Menu:
             gotoxy(self.col,self.fil);print(opcion)
         gotoxy(self.col+5,self.fil+2)
         opc = input("Elija opcion[1...{}]:".format(len(self.opciones))) 
-        return opc
+        return opc   
 
 class Valida:
     def solo_numeros(self,mensajeError,col,fil):
-        while True:
-            gotoxy(col,fil)
+        while True: 
+            gotoxy(col,fil)            
             valor = input()
             try:
                 if int(valor) > 0:
@@ -50,9 +50,10 @@ class Valida:
             except:
                 print("          ------><  | {} ".format(mensajeError))
         return valor
-
+    
     def cedula():
         pass
-
+    
 class otra:
-    pass
+    pass    
+
